@@ -1,0 +1,183 @@
+swagger: '2.0'
+info:
+    title: Payments
+    version: 1.0.0
+    description: API to send and view payments
+    license:
+        name: Apache 2.0
+        url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: payments.swagger.io
+basePath: /v2
+schemes:
+    - https
+    - http
+paths:
+    /payments:
+        post:
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - in: body
+                  name: payments
+                  description: A list of payments to send
+                  schema:
+                      $ref: '#/definitions/PaymentsRequest'
+            responses:
+                '201':
+                    description: Successful create/send operation
+                    schema:
+                        $ref: '#/definitions/PaymentsResponse'
+                '400':
+                    description: Invalid request
+            operationId: sendPayments
+            summary: Send Payments
+    /payments/findByAccount:
+        post:
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - in: body
+                  name: payments request
+                  description: Retrieve payments request
+                  schema:
+                      $ref: '#/definitions/AccountRetrievePaymentsRequest'
+            responses:
+                '200':
+                    description: Successful operation
+                    schema:
+                        $ref: '#/definitions/PaymentsResponse'
+                '400':
+                    description: Invalid request
+            operationId: findPaymentsByAccount
+            summary: Finds Payments by Account
+    /payments/findByPaymentId:
+        post:
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - in: body
+                  name: payments request
+                  description: Retrieve payments request
+                  schema:
+                      $ref: '#/definitions/PaymentIdRetrievePaymentsRequest'
+            responses:
+                '200':
+                    description: Successful operation
+                    schema:
+                        $ref: '#/definitions/PaymentsResponse'
+                '400':
+                    description: Invalid request
+            operationId: findPaymentsByPaymentId
+            summary: Finds Payments by Payment Id
+    /payments/findByCreditor:
+        post:
+            consumes:
+                - application/json
+            produces:
+                - application/json
+            parameters:
+                - in: body
+                  name: payments request
+                  description: A single creditor's name
+                  schema:
+                      $ref: '#/definitions/RetrievePaymentsByCreditorAccount'
+            responses:
+                '200':
+                    description: Successful operation
+                    schema:
+                        $ref: '#/definitions/PaymentsResponse'
+                '400':
+                    description: Invalid request
+            operationId: findPaymentsByCreditorAccount
+            summary: Finds Payments to Creditor by Creditor's Account
+definitions:
+    PaymentsRequest:
+        type: object
+        properties:
+            payments:
+                $ref: '#/definitions/Payments'
+    PaymentsResponse:
+        type: object
+        properties:
+            payments:
+                $ref: '#/definitions/Payments'
+    Payments:
+        type: array
+        items:
+            $ref: '#/definitions/Payment'
+    Payment:
+        type: object
+        properties:
+            id:
+                type: string
+            paymentId:
+                type: string
+            status:
+                type: string
+                enum: [PENDING, REJECTED, COMPLETED]
+            amount:
+                type: string
+            transactionType:
+                type: string
+                enum: [CREDIT, DEBIT]
+            debtorFirstName:
+                type: string
+            debtorLastName:
+                type: string
+            debtorAddressLine1:
+                type: string
+            debtorAddressLine2:
+                type: string
+            debtorCity:
+                type: string
+            debtorState:
+                type: string
+            debtorPostalCode:
+                type: string
+            debtorCountry:
+                type: string
+            debtorAccountNumber:
+                type: string
+            debtorAgentFinancialInstitutionId:
+                type: string
+            creditorFirstName:
+                type: string
+            creditorLastName:
+                type: string
+            creditorAddressLine1:
+                type: string
+            creditorAddressLine2:
+                type: string
+            creditorCity:
+                type: string
+            creditorState:
+                type: string
+            creditorPostalCode:
+                type: string
+            creditorCountry:
+                type: string
+            creditorAccountNumber:
+                type: string
+            creditorAgentFinancialInstitutionId:
+                type: string
+    AccountRetrievePaymentsRequest:
+        type: object
+        properties:
+            accountNumber:
+                type: string
+    PaymentIdRetrievePaymentsRequest:
+        type: object
+        properties:
+            creditor:
+                type: string
+    RetrievePaymentsByCreditorAccount:
+        type: object
+        properties:
+            creditor:
+                type: string

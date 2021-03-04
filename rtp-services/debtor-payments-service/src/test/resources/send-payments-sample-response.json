@@ -1,0 +1,31 @@
+{
+    "payments": [
+        {
+            "id": 7,
+            "paymentId": "PAY20200618135056410",
+            "status": "PENDING",
+            "amount": "5.90",
+            "transactionType": "DEBIT",
+            "debtorFirstName": "Mary",
+            "debtorLastName": "Park",
+            "debtorAddressLine1": "555 Lake Street",
+            "debtorAddressLine2": "Apt. B",
+            "debtorCity": "Plainville",
+            "debtorState": "TX",
+            "debtorPostalCode": "12345",
+            "debtorCountry": "United States",
+            "debtorAccountNumber": "123456789",
+            "debtorAgentFinancialInstitutionId": "1111111111",
+            "creditorFirstName": "Lee",
+            "creditorLastName": "Cruz",
+            "creditorAddressLine1": "123 North Avenue",
+            "creditorAddressLine2": null,
+            "creditorCity": "Raleigh",
+            "creditorState": "NC",
+            "creditorPostalCode": "54321",
+            "creditorCountry": "United States",
+            "creditorAccountNumber": "987654321",
+            "creditorAgentFinancialInstitutionId": "2222222222"
+        }
+    ]
+}

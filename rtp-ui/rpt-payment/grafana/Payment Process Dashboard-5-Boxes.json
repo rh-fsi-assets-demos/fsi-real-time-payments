@@ -1,0 +1,348 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_MYSQL",
+      "label": "MySQL",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "mysql",
+      "pluginName": "MySQL"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "7.1.1"
+    },
+    {
+      "type": "panel",
+      "id": "larona-epict-panel",
+      "name": "epict Panel",
+      "version": "1.2.2"
+    },
+    {
+      "type": "datasource",
+      "id": "mysql",
+      "name": "MySQL",
+      "version": "1.0.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "bgColor": null,
+      "bgURL": "https://lh3.googleusercontent.com/rbeGc0-Ejq3xbARKzQdxKte4jH0zWs7E-J9uSAbjU6GZWnBqBaBcQuCF73CdAWAcOaSVj5GYkuAHiAI-gA=w718-h385-rw",
+      "boxes": [
+        {
+          "angle": 0,
+          "color": "#000",
+          "colorHigh": "#f00",
+          "colorLow": "#0f0",
+          "colorMedium": "#fa1",
+          "decimal": 1,
+          "fontsize": 12,
+          "hasOrb": false,
+          "isBlinking": false,
+          "orbHideText": false,
+          "orbLocation": "Left",
+          "orbSize": "10",
+          "prefixSize": 10,
+          "serie": "test1",
+          "suffixSize": 10,
+          "text": "N/A",
+          "thresholds": "20,60",
+          "usingThresholds": false,
+          "xpos": "165",
+          "ypos": "435"
+        },
+        {
+          "angle": 0,
+          "color": "#000",
+          "colorHigh": "#f00",
+          "colorLow": "#0f0",
+          "colorMedium": "#fa1",
+          "decimal": 1,
+          "fontsize": 12,
+          "hasOrb": false,
+          "isBlinking": false,
+          "orbHideText": false,
+          "orbLocation": "Left",
+          "orbSize": "10",
+          "prefixSize": 10,
+          "serie": "test2",
+          "suffixSize": 10,
+          "text": "N/A",
+          "thresholds": "20,60",
+          "usingThresholds": false,
+          "xpos": "370",
+          "ypos": "435"
+        },
+        {
+          "angle": 0,
+          "color": "#000",
+          "colorHigh": "#f00",
+          "colorLow": "#0f0",
+          "colorMedium": "#fa1",
+          "decimal": 1,
+          "fontsize": 12,
+          "hasOrb": false,
+          "isBlinking": false,
+          "orbHideText": false,
+          "orbLocation": "Left",
+          "orbSize": "10",
+          "prefixSize": 10,
+          "serie": "test3",
+          "suffixSize": 10,
+          "text": "N/A",
+          "thresholds": "20,60",
+          "usingThresholds": false,
+          "xpos": "560",
+          "ypos": "435"
+        },
+        {
+          "angle": 0,
+          "color": "#000",
+          "colorHigh": "#f00",
+          "colorLow": "#0f0",
+          "colorMedium": "#fa1",
+          "decimal": 1,
+          "fontsize": 12,
+          "hasOrb": false,
+          "isBlinking": false,
+          "orbHideText": false,
+          "orbLocation": "Left",
+          "orbSize": "10",
+          "prefixSize": 10,
+          "serie": "test4",
+          "suffixSize": 10,
+          "text": "N/A",
+          "thresholds": "20,60",
+          "usingThresholds": false,
+          "xpos": "820",
+          "ypos": "460"
+        },
+        {
+          "angle": 0,
+          "color": "#000",
+          "colorHigh": "#f00",
+          "colorLow": "#0f0",
+          "colorMedium": "#fa1",
+          "decimal": 1,
+          "fontsize": 12,
+          "hasOrb": false,
+          "isBlinking": false,
+          "orbHideText": false,
+          "orbLocation": "Left",
+          "orbSize": "10",
+          "prefixSize": 10,
+          "serie": "test5",
+          "suffixSize": 10,
+          "text": "N/A",
+          "thresholds": "20,60",
+          "usingThresholds": false,
+          "xpos": "1075",
+          "ypos": "435"
+        }
+      ],
+      "datasource": "${DS_MYSQL}",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {}
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 5,
+        "y": 0
+      },
+      "id": 2,
+      "pluginVersion": "7.1.1",
+      "targets": [
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CREATION_DATE_TIME AS \"time\",\n  \"test1\" AS metric,\n  SUM(ENTRYCOUNT) AS \"value\"\nFROM VALIDATION_COMPLETE\nWHERE\n  $__timeFilter(CREATION_DATE_TIME)\nORDER BY CREATION_DATE_TIME",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "ENTRYCOUNT"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "VALIDATION_COMPLETE",
+          "timeColumn": "CREATION_DATE_TIME",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CREATION_DATE_TIME AS \"time\",\n  \"test2\" AS metric,\n  SUM(ENTRYCOUNT) AS \"value\"\nFROM AML_CHECK_COMPLETE\nWHERE\n  $__timeFilter(CREATION_DATE_TIME)\nORDER BY CREATION_DATE_TIME",
+          "refId": "B",
+          "select": [
+            [
+              {
+                "params": [
+                  "ENTRYCOUNT"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "AML_CHECK_COMPLETE",
+          "timeColumn": "CREATION_DATE_TIME",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CREATION_DATE_TIME AS \"time\",\n  \"test3\" AS metric,\n  SUM(ENTRYCOUNT) AS \"value\"\nFROM FRAUD_CHECK_COMPLETE\nWHERE\n  $__timeFilter(CREATION_DATE_TIME)\nORDER BY CREATION_DATE_TIME",
+          "refId": "C",
+          "select": [
+            [
+              {
+                "params": [
+                  "ENTRYCOUNT"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "FRAUD_CHECK_COMPLETE",
+          "timeColumn": "CREATION_DATE_TIME",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CREATION_DATE_TIME AS \"time\",\n  \"test4\" AS metric,\n  SUM(ENTRYCOUNT) AS \"value\"\nFROM AUDIT_COMPLETE\nWHERE\n  $__timeFilter(CREATION_DATE_TIME)\nORDER BY CREATION_DATE_TIME",
+          "refId": "D",
+          "select": [
+            [
+              {
+                "params": [
+                  "ENTRYCOUNT"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "AUDIT_COMPLETE",
+          "timeColumn": "CREATION_DATE_TIME",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        },
+        {
+          "format": "time_series",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n  CREATION_DATE_TIME AS \"time\",\n  \"test5\" AS metric,\n  SUM(ENTRYCOUNT) AS \"value\"\nFROM PAYMENT_NETWORK_SENT\nWHERE\n  $__timeFilter(CREATION_DATE_TIME)\nORDER BY CREATION_DATE_TIME",
+          "refId": "E",
+          "select": [
+            [
+              {
+                "params": [
+                  "ENTRYCOUNT"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "PAYMENT_NETWORK_SENT",
+          "timeColumn": "CREATION_DATE_TIME",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Payment Process",
+      "type": "larona-epict-panel"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 26,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [],
+    "time_options": []
+  },
+  "timezone": "browser",
+  "title": "Payment Process Dashboard 5 Boxes",
+  "uid": "23d54a9438981d6508b85e5d6b6a775ee1000820",
+  "version": 2
+}

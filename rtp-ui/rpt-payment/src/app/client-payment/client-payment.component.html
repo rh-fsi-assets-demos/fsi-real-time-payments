@@ -1,0 +1,103 @@
+<div>
+  <div fxLayout='row' fxLayoutGap='20px'>
+    <div fxFlex='20%'>
+      <mat-form-field>
+        <mat-label>Debit Account</mat-label>
+        <mat-select [(ngModel)]="selectedDebtAccount" (selectionChange)="getBalance($event)">
+          <mat-option [value]="null">--Add Account--</mat-option>
+          <mat-option *ngFor="let account of obAccounts" [value]="account">
+            {{account.Nickname}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-flat-button matTooltip='Edit Debt' (click)="editAccountDialog()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+    <div>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Account Balance" [ngModel]="accountBalance | currency:'USD':'symbol':'2.2'" readonly>
+    </mat-form-field>
+    </div>
+  </div>
+
+  <div fxLayout='row' fxLayoutGap='20px'>
+    <div fxFlex='20'>
+      <mat-form-field>
+        <mat-label>Payee</mat-label>
+        <mat-select [(ngModel)]="selectedPayee">
+          <mat-option [value]="null">--Add Payee--</mat-option>
+          <mat-option *ngFor="let account of payees" [value]="account">
+            {{account.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-flat-button matTooltip='Edit Payee' (click)="editPayeeDialog()">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <mat-label>Amount</mat-label>
+        <input matInput [(ngModel)]="payAmount" (keyup)="calculateBalance()">
+      </mat-form-field>
+    </div>
+  </div>
+  <br>
+  <div fxLayout='row' fxLayoutGap='20px' >
+    <div fxFlex='20' fxLayoutAlign="end center">
+      &nbsp;
+    </div>
+    <div>
+    <mat-form-field>
+      <input matInput type="text" placeholder="New Balance" [ngModel]="newBalance | currency:'USD':'symbol':'2.2'" readonly>
+    </mat-form-field>
+    </div>
+  </div>
+  <br>
+  <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="start center">
+    <div fxFlex="20">
+      <mat-radio-group aria-label="Select a payment option" [(ngModel)]="paymentType">
+        <mat-radio-button value="1">Immediate</mat-radio-button> &nbsp;
+        <mat-radio-button value="2">Scheduled</mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div fxFlex="15" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="20px" *ngIf="paymentType==='2'">
+      <mat-form-field>
+        <mat-label>Schedule a Payment</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div fxLayoutAlign="start center" *ngIf="paymentType==='2'">
+      <mat-radio-group fxLayout="column" aria-label="Select a payment option" [(ngModel)]="recurringPayment">
+        <mat-radio-button value="1">One Time</mat-radio-button>
+        <mat-radio-button value="2">Recurring Weekly</mat-radio-button>
+        <mat-radio-button value="3">Recurring Bi-Weekly</mat-radio-button>
+        <mat-radio-button value="4">Recurring Monthly</mat-radio-button>
+        <mat-radio-button value="5">Annual</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  </div>
+  <div fxLayout='row' fxLayoutGap='20px'>
+    <div fxFlex='20'>
+    </div>
+    <div>
+      <button mat-raised-button matTooltip='Submit Transaction' color="primary" (click)="submitPayment()">
+        Submit
+      </button>
+    </div>
+  </div>
+
+  <!-- <button mat-mini-fab color="primary" matTooltip='Edit Payee'>
+      <mat-icon>edit</mat-icon>
+    </button>
+
+    <button mat-mini-fab color="primary" matTooltip='Add Payee'>
+      <mat-icon>add</mat-icon>
+    </button>
+
+    <button mat-mini-fab color="primary" matTooltip='Delete Payee'>
+      <mat-icon>delete</mat-icon>
+    </button> -->

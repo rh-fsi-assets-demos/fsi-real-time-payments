@@ -1,0 +1,61 @@
+@import '~@angular/material/theming';
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.menuShadow {
+  bottom: 1px solid;
+  box-shadow: 1px 2px #888888;
+}
+
+.content {
+  padding-left:25px;
+  padding-right:25px;
+}
+
+.editButton {
+  width: 10px;
+  height: 10px;
+}
+
+.bgThemeSlant {
+  // background-image: url("./assets/img/adb3b10e-a529-47a3-8f8f-1b099a9d941e.jpeg");
+  background-image: -webkit-linear-gradient(150deg, #cc0000 35%, #ffffff 35%);
+  min-height: 100vh;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  margin:5px;
+}
+
+.dropShadow {
+  filter:drop-shadow(5px 5px 10px black);
+}
+
+#content {
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: #ffffff;
+  font-weight: 500;
+  font-size: 30px;
+}
+
+#content2 {
+  box-sizing: content-box;
+  margin: 0 auto;
+  padding: 15px;
+  background-color: #ffffff;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.divTagBorder {
+  border-style: solid;
+  border-color: coral;
+}
