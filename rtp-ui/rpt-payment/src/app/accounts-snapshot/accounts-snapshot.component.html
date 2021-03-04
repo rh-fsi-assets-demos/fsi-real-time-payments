@@ -1,0 +1,62 @@
+<div fxLayoutAlign="center center" id="content">
+  Account Summary
+</div>
+<div>
+  <mat-accordion #accordion="matAccordion">
+    <mat-expansion-panel *ngFor="let account of accountInfo" (opened)="beforePanelOpened(account)">
+      <mat-expansion-panel-header>
+        <mat-panel-title fxFlex="40">
+          {{account.Account[0].Name}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{account.Nickname}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <!-- <div fxLayout="row" fxLayoutGap='10px'>
+        <b>Balance:</b><span>{{account.balance | currency}}</span>
+      </div> -->
+      <div fxLayout="row" fxLayoutGap='10px'>
+        <b>Identification:</b> <span>{{account.Account[0].Identification}}</span>
+        <b>Account Id:</b> <span>{{account.AccountId}}</span>
+        <b>Balance:</b> <span *ngIf="selectedBalance !== undefined">{{selectedBalance[0].Amount.Amount}} {{selectedBalance[0].Amount.Currency}}</span>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<br>
+<div fxLayoutAlign="center center" id="content">
+  Transfer Between Accounts
+</div>
+<div fxLayout='row' fxLayoutGap='20px' fxLayoutAlign="start center">
+  <mat-form-field>
+    <mat-label>From Account</mat-label>
+    <mat-select>
+      <mat-option [value]="null"></mat-option>
+      <mat-option *ngFor="let account of accountInfo" [value]="account.Nickname"
+        (onSelectionChange)="accountSelected($event)">
+        {{account.Nickname}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+    <mat-label>Amount</mat-label>
+    <input matInput [(ngModel)]="payAmount" (keyup)="calculateBalance()" placeholder="123.13">
+  </mat-form-field>
+  &nbsp;
+
+  <mat-form-field>
+    <mat-label>To Account</mat-label>
+    <mat-select>
+      <mat-option [value]="null"></mat-option>
+      <mat-option *ngFor="let account of accountInfo" [value]="account.Nickname"
+        (onSelectionChange)="accountSelected($event)">
+        {{account.Nickname}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  &nbsp;
+  <button mat-raised-button matTooltip='Submit Transaction' color="primary">
+    Transfer
+  </button>
+</div>

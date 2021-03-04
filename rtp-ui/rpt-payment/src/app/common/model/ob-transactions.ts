@@ -1,0 +1,34 @@
+import { ObAccount } from './ob-account';
+import { ObAmounts } from './ob-amounts';
+import { ObBalances } from './ob-balances';
+import { ObBankTransactionCode } from './ob-bank-transaction-code';
+import { ObCardInstrument } from './ob-card-instrument';
+import { ObCurrencyExchange } from './ob-currency-exchange';
+import { ObMerchantDetails } from './ob-merchant-details';
+import { ObProprietaryBankTransactionCode } from './ob-proprietary-bank-transaction-code';
+export interface ObTransactions {
+  AccountId: string;
+  TransactionId: string;
+  TransactionReference: string;
+  Amount: ObAmounts;
+  StatementReference: string[];
+  CreditDebitIndicator: string;
+  Status: string;
+  TransactionMutability: string;
+  BookingDateTime: string;
+  ValueDateTime: string;
+  TransactionInformation: string;
+  AddressLine: string;
+  ChargeAmount: ObAmounts;
+  CurrencyExchange: ObCurrencyExchange;
+  BankTransactionCode: ObBankTransactionCode;
+  ProprietaryBankTransactionCode: ObProprietaryBankTransactionCode;
+  Balance: ObBalances;
+  MerchantDetails: ObMerchantDetails;
+  CreditorAgent: ObAccount;
+  CreditorAccount: ObAccount;
+  DebtorAgent: ObAccount;
+  DebtorAccount: ObAccount;
+  CardInstrument: ObCardInstrument;
+  SupplementaryData: string;
+}

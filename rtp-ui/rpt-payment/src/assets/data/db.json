@@ -1,0 +1,364 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "first_name": "Robert",
+      "last_name": "Schwartz",
+      "email": "rob23@gmail.com"
+    },
+    {
+      "id": 2,
+      "first_name": "Lucy",
+      "last_name": "Ballmer",
+      "email": "lucyb56@gmail.com"
+    },
+    {
+      "id": 3,
+      "first_name": "Anna",
+      "last_name": "Smith",
+      "email": "annasmith23@gmail.com"
+    },
+    {
+      "Testing": "This is a test",
+      "id": 4
+    }
+  ],
+  "bankAccounts": [
+    {
+      "userId": "1",
+      "routingNum": "123",
+      "accountNum": "83729",
+      "accountType": "Checking",
+      "name": "Home Account",
+      "description": "Daily bills",
+      "balance": 10000,
+      "dateAdded": "10/2/2009",
+      "dateRemove": ""
+    },
+    {
+      "userId": "1",
+      "routingNum": "123",
+      "accountNum": "93817",
+      "accountType": "Savings",
+      "name": "Education Fund",
+      "description": "Johnny school fund",
+      "balance": 20000,
+      "dateAdded": "10/2/2009",
+      "dateRemove": ""
+    },
+    {
+      "userId": "1",
+      "routingNum": "123",
+      "accountNum": "573820",
+      "accountType": "Savings",
+      "name": "Rainy Day",
+      "description": "Financial security",
+      "balance": 30000,
+      "dateAdded": "10/2/2009",
+      "dateRemove": ""
+    },
+    {
+      "userId": "2",
+      "routingNum": "123",
+      "accountNum": "837410",
+      "accountType": "Checking",
+      "name": "Monthly Bills",
+      "description": "Personal Checking",
+      "balance": 25000,
+      "dateAdded": "1/24/2001",
+      "dateRemove": ""
+    },
+    {
+      "userId": "1",
+      "routingNum": "123",
+      "accountNum": "0391782",
+      "accountType": "Payee",
+      "name": "OUC Utilities",
+      "description": "Home Utilities",
+      "balance": 350,
+      "dateAdded": "10/2/2009",
+      "dateRemove": ""
+    },
+    {
+      "userId": "1",
+      "routingNum": "123",
+      "accountNum": "12375783",
+      "accountType": "Payee",
+      "name": "Dillards",
+      "description": "Dillards credit card",
+      "balance": 500,
+      "dateAdded": "10/2/2009",
+      "dateRemove": ""
+    },
+    {
+      "userId": "1",
+      "routingNum": "123",
+      "accountNum": "6594277",
+      "accountType": "Payee",
+      "name": "Travel VISA",
+      "description": "Travel expenses",
+      "balance": 1000,
+      "dateAdded": "10/2/2009",
+      "dateRemove": ""
+    },
+    {
+      "id": 3,
+      "first_name": "Anna",
+      "last_name": "Smith",
+      "email": "annasmith23@gmail.com"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    },
+    [
+      "This is a test",
+      "Test 4"
+    ]
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "Test": [
+    "Test 1",
+    "Test 2"
+  ],
+  "Accounts": [
+    {
+      "AccountHolderId": "11111",
+      "AccountId": "22289",
+      "Status": "Enabled",
+      "StatusUpdateDateTime": "2019-01-01T06:06:06+00:00",
+      "Currency": "GBP",
+      "AccountType": "Personal",
+      "AccountSubType": "CurrentAccount",
+      "Nickname": "Bills",
+      "OpeningDate": "01-05-2002",
+      "Account": [
+        {
+          "SchemeName": "UK.OBIE.SortCodeAccountNumber",
+          "Identification": "80200110203345",
+          "Name": "Mr Kevin",
+          "SecondaryIdentification": "00021"
+        }
+      ]
+    },
+    {
+      "AccountHolderId": "11111",
+      "AccountId": "31820",
+      "Status": "Enabled",
+      "StatusUpdateDateTime": "2018-01-01T06:06:06+00:00",
+      "Currency": "GBP",
+      "AccountType": "Personal",
+      "AccountSubType": "CurrentAccount",
+      "Nickname": "Household",
+      "Account": [
+        {
+          "SchemeName": "UK.OBIE.SortCodeAccountNumber",
+          "Identification": "80200110203348",
+          "Name": "Mr Kevin"
+        }
+      ]
+    }
+  ],
+  "Balances": [
+    {
+      "AccountId": "22289",
+      "Amount": {
+        "Amount": "1230.00",
+        "Currency": "GBP"
+      },
+      "CreditDebitIndicator": "Credit",
+      "Type": "InterimAvailable",
+      "DateTime": "2017-04-05T10:43:07+00:00",
+      "CreditLine": [
+        {
+          "Included": true,
+          "Amount": {
+            "Amount": "1000.00",
+            "Currency": "GBP"
+          },
+          "Type": "Temporary"
+        }
+      ]
+    },
+    {
+      "AccountId": "31820",
+      "Amount": {
+        "Amount": "57.36",
+        "Currency": "GBP"
+      },
+      "CreditDebitIndicator": "Debit",
+      "Type": "InterimBooked",
+      "DateTime": "2017-05-02T14:22:09+00:00"
+    }
+  ],
+  "DomesticPayments": {
+    "Data": {
+      "DomesticPaymentId": "string",
+      "ConsentId": "string",
+      "CreationDateTime": "2020-07-27T19:33:00.657Z",
+      "Status": "AcceptedCreditSettlementCompleted",
+      "StatusUpdateDateTime": "2020-07-27T19:33:00.657Z",
+      "ExpectedExecutionDateTime": "2020-07-27T19:33:00.657Z",
+      "ExpectedSettlementDateTime": "2020-07-27T19:33:00.657Z",
+      "Refund": {
+        "Account": {
+          "SchemeName": "string",
+          "Identification": "string",
+          "Name": "string",
+          "SecondaryIdentification": "string"
+        }
+      },
+      "Charges": [
+        {
+          "ChargeBearer": "BorneByCreditor",
+          "Type": "string",
+          "Amount": {
+            "Amount": "string",
+            "Currency": "string"
+          }
+        }
+      ],
+      "Initiation": {
+        "InstructionIdentification": "string",
+        "EndToEndIdentification": "string",
+        "LocalInstrument": "string",
+        "InstructedAmount": {
+          "Amount": "string",
+          "Currency": "string"
+        },
+        "DebtorAccount": {
+          "SchemeName": "string",
+          "Identification": "string",
+          "Name": "string",
+          "SecondaryIdentification": "string"
+        },
+        "CreditorAccount": {
+          "SchemeName": "string",
+          "Identification": "string",
+          "Name": "string",
+          "SecondaryIdentification": "string"
+        },
+        "CreditorPostalAddress": {
+          "AddressType": "Business",
+          "Department": "string",
+          "SubDepartment": "string",
+          "StreetName": "string",
+          "BuildingNumber": "string",
+          "PostCode": "string",
+          "TownName": "string",
+          "CountrySubDivision": "string",
+          "Country": "string",
+          "AddressLine": [
+            "string"
+          ]
+        },
+        "RemittanceInformation": {
+          "Unstructured": "string",
+          "Reference": "string"
+        },
+        "SupplementaryData": {
+          "additionalProp1": {}
+        }
+      },
+      "MultiAuthorisation": {
+        "Status": "Authorised",
+        "NumberRequired": 0,
+        "NumberReceived": 0,
+        "LastUpdateDateTime": "2020-07-27T19:33:00.658Z",
+        "ExpirationDateTime": "2020-07-27T19:33:00.658Z"
+      },
+      "Debtor": {
+        "Name": "string"
+      }
+    },
+    "Links": {
+      "Self": "string",
+      "First": "string",
+      "Prev": "string",
+      "Next": "string",
+      "Last": "string"
+    },
+    "Meta": {
+      "TotalPages": 0,
+      "FirstAvailableDateTime": "2020-07-27T19:33:00.658Z",
+      "LastAvailableDateTime": "2020-07-27T19:33:00.658Z"
+    }
+  },
+  "Transactions": {
+    "Transaction": [
+      {
+        "AccountId": "22289",
+        "TransactionId": "123",
+        "TransactionReference": "Ref 123",
+        "Amount": {
+          "Amount": "10.00",
+          "Currency": "GBP"
+        },
+        "CreditDebitIndicator": "Credit",
+        "Status": "Booked",
+        "BookingDateTime": "2017-04-05T10:43:07+00:00",
+        "ValueDateTime": "2017-04-05T10:45:22+00:00",
+        "TransactionInformation": "Cash from Aubrey",
+        "BankTransactionCode": {
+          "Code": "ReceivedCreditTransfer",
+          "SubCode": "DomesticCreditTransfer"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "Transfer",
+          "Issuer": "AlphaBank"
+        },
+        "Balance": {
+          "Amount": {
+            "Amount": "230.00",
+            "Currency": "GBP"
+          },
+          "CreditDebitIndicator": "Credit",
+          "Type": "InterimBooked"
+        }
+      },
+      {
+        "AccountId": "31820",
+        "TransactionId": "567",
+        "TransactionReference": "Ref 124",
+        "Amount": {
+          "Amount": "100.00",
+          "Currency": "GBP"
+        },
+        "CreditDebitIndicator": "Debit",
+        "Status": "Booked",
+        "BookingDateTime": "2017-05-02T14:22:09+00:00",
+        "ValueDateTime": "2017-05-02T14:22:09+00:00",
+        "TransactionInformation": "Paid the gas bill",
+        "AddressLine": "Coventry",
+        "BankTransactionCode": {
+          "Code": "IssuedCreditTransfer",
+          "SubCode": "AutomaticTransfer"
+        },
+        "ProprietaryBankTransactionCode": {
+          "Code": "DirectDebit",
+          "Issuer": "AlphaBank"
+        },
+        "Balance": {
+          "Amount": {
+            "Amount": "57.36",
+            "Currency": "GBP"
+          },
+          "CreditDebitIndicator": "Debit",
+          "Type": "InterimBooked"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,36 @@
+﻿apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+  creationTimestamp: '2020-12-16T19:16:54Z'
+  generation: 1
+  managedFields:
+    - apiVersion: integreatly.org/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:datasources': {}
+          'f:name': {}
+      manager: Mozilla
+      operation: Update
+      time: '2020-12-16T19:16:54Z'
+  name: mysql-grafanadatasource
+  namespace: rtp-demo
+  resourceVersion: '310539'
+  selfLink: >-
+    /apis/integreatly.org/v1alpha1/namespaces/rtp-demo/grafanadatasources/mysql-grafanadatasource
+  uid: a9760c66-7f07-45a1-ae74-ee497f8cfd13
+spec:
+  datasources:
+    - access: proxy
+      editable: true
+      secureJsonData:
+        password: dbpass
+      name: MYSQL
+      user: dbuser
+      url: mysql-56-rhel7
+      isDefault: true
+      version: 1
+      type: mysql
+      database: rtpdb
+  name: mysql-datasources.yaml

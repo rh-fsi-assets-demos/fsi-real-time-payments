@@ -1,0 +1,155 @@
+.speech-bubble {
+	// position: relative;
+  background: #ffffff;
+  // color: #ffffff;
+  border-radius: .4em;
+  width: 80%;
+}
+
+#footer {
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+}
+
+img {
+  float: left;
+  // width:  100px;
+  height: 100%;
+  object-fit: cover;
+}
+
+spanCheckList {
+  color: #ffffff;
+}
+
+ul.check_checkmark {
+  // list-style-image: url('../../assets/img/checkbox-checked.png');
+  color: #ffffff;
+}
+
+li {
+  padding-bottom: 10px;
+}
+
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  .card {
+    flex: 0 0 auto;
+    margin-right: 6px;
+    margin-top: 10px;
+  }
+}
+
+.scrolling-wrapper, .scrolling-wrapper-flexbox {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  white-space: nowrap;
+  height: 400px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .card {
+    display: inline-block;
+    justify-content: center;
+    width: 260px;
+    height: 400px;
+    margin-right: 6px;
+    margin-top: 10px;
+  }
+}
+
+.chevron::before {
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.85em;
+	left: 0.15em;
+	position: relative;
+	top: 0.15em;
+	transform: rotate(-45deg);
+	vertical-align: top;
+	width: 0.85em;
+}
+
+.chevron.rightArrow:before {
+	left: 0;
+	transform: rotate(45deg);
+}
+
+.chevron.bottom:before {
+	top: 0;
+	transform: rotate(135deg);
+}
+
+.chevron.leftArrow:before {
+	left: 0.25em;
+	transform: rotate(-135deg);
+}
+
+
+.mat-icon{
+  color: #ffffff;
+}
+
+.mat-card {
+  background-color: #000000;
+  padding: 0;
+  padding-bottom: 4px;
+  margin: 8px;
+  width: 100%;
+  border-radius: 25px;
+}
+
+.mat-card-title {
+  padding: 8px;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.mat-card-subtitle {
+  color: #ffffff;
+  font-size: 16px;
+  text-align: center;
+}
+
+.mat-card-header {
+  background-color: #cc0000;
+  border-radius: 25px;
+}
+
+.mat-card-content {
+  margin-top: 4px;
+  height: 200px;
+  padding: 10px;
+  // width: 100%;
+}
+
+.mat-card-actions {
+  margin: auto;
+  width: 98%;
+  padding: 2px;
+  // background-color: $theme-color2;
+}
+
+.mat-button-wrapper {
+  padding: 0;
+  display: inline-block;
+  line-height: 24px;
+}
+
+.right {
+  position: absolute;
+  right: 0px;
+  width: 300px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}

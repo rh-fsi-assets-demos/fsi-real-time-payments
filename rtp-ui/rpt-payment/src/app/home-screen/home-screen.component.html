@@ -1,0 +1,71 @@
+<div fxLayout='row'>
+  <div fxFlex="50" fxLayoutAlign="start center">
+    <mat-form-field>
+      <mat-label>Select Project</mat-label>
+      <mat-select (selectionChange)="setProject()" [(ngModel)]="selectedProject">
+        <mat-option *ngFor="let project of productDemos" [value]="project">
+          {{project.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div fxFlex="50" fxLayoutAlign="end center">
+    <mat-form-field>
+      <mat-label>Simulate User Experience</mat-label>
+      <mat-select (selectionChange)="setUser($event)" [(ngModel)]="selectedUser">
+        <mat-option *ngFor="let user of users" [value]="user">
+          {{user.firstName}} {{ user.lastName}} / {{user.role}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+<div *ngIf="productDemo">
+  <div fxLayout='row' fxLayoutGap='20px' fxLayoutAlign="center center" id="content">
+    {{productDemo.title}}
+  </div>
+  <div id="content2" fxLayoutAlign="center center">
+    <p>{{productDemo.desc}}</p>
+  </div>
+  <div fxLayout="row" fxLayoutGap="20px" fxLayoutAlign="center center" class="scrolling-wrapper" *ngIf="productDemos">
+    <!-- <div fxFlex="5"></div> -->
+    <div fxFlex="5" fxLayoutAlign="center center">
+      <!-- <button mat-mini-fab color="primary" (click)="onPreviousSearchPosition()">
+        <mat-icon>chevron_left</mat-icon>
+      </button> -->
+    </div>
+    <div fxFlex="90" #panel style="overflow-x:scroll; height: 440px; padding-top: 10px;" fxLayoutAlign="center center">
+      <!-- <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50" class="example-viewport" #panel> -->
+      <div *ngFor="let subscription of projectCards" class="card rcorner">
+        <mat-card>
+          <mat-card-header fxLayoutAlign="center center">
+            <mat-card-title>{{subscription.title}}</mat-card-title>
+            <mat-card-subtitle>{{subscription.subtitle}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <div *ngFor="let feature of subscription.featureList">
+              <span style="color: #ffffff">
+                <mat-icon>check_circle</mat-icon> &nbsp; {{feature.desc}}
+              </span>
+            </div>
+          </mat-card-content>
+          <mat-card-actions>
+            &nbsp;
+          </mat-card-actions>
+        </mat-card>
+      </div>
+      <!-- </cdk-virtual-scroll-viewport> -->
+    </div>
+    <div fxFlex="5" fxLayoutAlign="center center">
+      <!-- <button mat-mini-fab color="primary" (click)="onNextSearchPosition()">
+        <mat-icon>chevron_right</mat-icon>
+      </button> -->
+    </div>
+    <!-- <div fxFlex="5"></div> -->
+  </div>
+  <div fxLayout='row' fxLayoutGap='20px' id="footer" fxLayoutAlign="center center">
+    <span *ngFor="let tech of projectTech" style="height: 40px;">
+      <img src="{{tech.imgUrl}}">
+    </span>
+  </div>
+</div>

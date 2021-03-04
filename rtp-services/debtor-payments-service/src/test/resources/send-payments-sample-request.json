@@ -1,0 +1,29 @@
+{
+  "payments": [
+    {
+      "amount": "5.90",
+
+      "debtorFirstName": "Mary",
+      "debtorLastName": "Park",
+      "debtorAddressLine1": "555 Lake Street",
+      "debtorAddressLine2": "Apt. B",
+      "debtorCity":"Plainville",
+      "debtorState": "TX",
+      "debtorPostalCode":"12345",
+      "debtorCountry": "United States",
+      "debtorAccountNumber": "123456789",
+      "debtorAgentFinancialInstitutionId":"1111111111",
+
+      "creditorFirstName": "Lee",
+      "creditorLastName": "Cruz",
+      "creditorAddressLine1": "123 North Avenue",
+      "creditorAddressLine2": null,
+      "creditorCity":"Raleigh",
+      "creditorState": "NC",
+      "creditorPostalCode":"54321",
+      "creditorCountry": "United States",
+      "creditorAccountNumber": "987654321",
+      "creditorAgentFinancialInstitutionId":"2222222222"
+    }
+  ]
+}

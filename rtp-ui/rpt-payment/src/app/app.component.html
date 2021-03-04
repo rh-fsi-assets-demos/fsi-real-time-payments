@@ -1,0 +1,29 @@
+<header></header>
+
+<nav class="app-toolbar menuShadow">
+  <mat-toolbar color="primary">
+    <!-- <img class="redhat-logo" src="https://static.redhat.com/libs/redhat/brand-assets/2/corp/logo--200.png" style="margin:0;width: 135px;" title="Red Hat"/> -->
+    <img src="./assets/img/logo-white-letters.png" style="margin:0;width: 135px; color:white;" title="Red Hat" />&nbsp;
+    <span flex></span>
+    <div fxShow="true" fxHide.lt-md="true" style="margin-left: auto;">
+      <label *ngIf="user">{{user.firstName}} {{user.lastName}}</label>
+      <button mat-button color="black" routerLink="/app-home-screen">
+        <mat-icon>home</mat-icon>Home
+      </button>
+      <button mat-button color="black" routerLink="/app-accounts-snapshot">
+        <mat-icon>account_balance</mat-icon>Snapshot
+      </button>
+      <button mat-button color="black" routerLink="/app-client-tasks">
+        <mat-icon>assignment</mat-icon>Tasks
+      </button>
+      <button mat-button color="black" routerLink="/app-user-profile">
+        <mat-icon>account_circle</mat-icon>Profile
+      </button>
+    </div>
+  </mat-toolbar>
+</nav>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+<footer></footer>

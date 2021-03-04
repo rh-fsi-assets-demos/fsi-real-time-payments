@@ -1,0 +1,56 @@
+<form [formGroup]="payeeAccountFormGroup" (ngSubmit)="onSubmit()">
+  <div>
+    <div fxLayout='row'>
+      <mat-form-field style="width:100%">
+        <input matInput #filter placeholder="Filter">
+      </mat-form-field>
+      <button mat-icon-button matSuffix aria-label="search" (click)="applyFilter();">
+        <mat-icon matSuffix class="search">search</mat-icon>
+      </button>
+    </div>
+    <div fxLayout='row'>
+      <h2>Payee</h2>
+    </div>
+    <div fxLayout='row'>
+      <mat-form-field>
+        <mat-label>Payee Name</mat-label>
+        <input matInput type="text" formControlName="name" required>
+      </mat-form-field>
+    </div>
+    <div fxLayout='row'>
+      <mat-form-field>
+        <mat-label>Maximum Payment Limit</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </div>
+    <div fxLayout='row'>
+      <h2>Banking</h2>
+    </div>
+    <div fxLayout='row'>
+      <mat-form-field>
+        <mat-label>Bank Routing Number</mat-label>
+        <input matInput type="text" formControlName="routingNum" required>
+      </mat-form-field>
+    </div>
+    <div fxLayout='row'>
+      <mat-form-field>
+        <mat-label>Account Number</mat-label>
+        <input matInput type="text" formControlName="accountNum" required>
+      </mat-form-field>
+    </div>
+    <div fxLayout='row' fxLayoutGap='20px'>
+      <button mat-raised-button matTooltip='Cancel Transaction' color="accent" (click)="onNoClick()">
+        Cancel
+      </button>
+      <button *ngIf="isEdit" mat-raised-button matTooltip='Update Transaction' color="primary" (click)="setAction('Update')">
+        Update
+      </button>
+      <button *ngIf="isEdit" mat-raised-button matTooltip='Delete Transaction' color="error" (click)="setAction('Delete')">
+        Delete
+      </button>
+      <button *ngIf="!isEdit" mat-raised-button matTooltip='Add Transaction' color="primary" (click)="setAction('Add')">
+        Add
+      </button>
+    </div>
+  </div>
+</form>
