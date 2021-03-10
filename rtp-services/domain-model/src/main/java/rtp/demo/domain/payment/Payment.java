@@ -77,6 +77,12 @@ public class Payment implements Serializable {
 	@Column(name = "REMITTANCE_INFORMATION_UNSTRUCTURED", unique = false, nullable = true, length = 256)
 	private String remittanceInformationUnstructured;
 
+	public Payment(Payment payment1, Payment payment2, String status) {
+		this.id = payment1.getId();
+		this.domesticPaymentId = payment1.getDomesticPaymentId();
+		this.status = status;
+	}
+
 	public BigInteger getId() {
 		return id;
 	}

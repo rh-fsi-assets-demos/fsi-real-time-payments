@@ -1,0 +1,21 @@
+vertx:
+  kafka:
+    producer:
+      bootstrap:
+         # The producer in your cluster uses this URL to publish messages to the log.
+        servers: localhost:9092
+      key:
+          # This class assigns the mandatory key attribute that is assigned to each message.
+        serializer: org.apache.kafka.common.serialization.StringSerializer
+      value:
+          # This class assigns the mandatory value attribute that is assigned to each message.
+        serializer: org.apache.kafka.common.serialization.StringSerializer
+    consumer:
+      bootstrap:
+        servers: localhost:9092 # The consumer in your cluster uses this URL to read messages from the log.
+      group:
+        id: log # The consumer group IDs used to define a group of consumers that subscribe to the same topic. In this example, all consumers belong in the same consumer group.
+      key:
+        deserializer: org.apache.kafka.common.serialization.StringDeserializer # This class generates the mandatory key attribute that is assigned to each message.
+      value:
+        deserializer: org.apache.kafka.common.serialization.StringDeserializer # This class generates the mandatory value attribute that is assigned to each message.
