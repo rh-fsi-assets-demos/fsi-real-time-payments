@@ -1,38 +1,10 @@
 #!/usr/bin/env bash
 
 # --- Create OpenShift project
-oc new-project rtp-demo
 
 # --- Install AMQ Streams
-oc apply -f amq-streams/install/cluster-operator -n rtp-demo
-until [ "$(oc get pods | grep strimzi-cluster-operator-* | grep Running 2> /dev/null)" ]; do sleep 3; printf "Waiting until operator deploys...\n"; done
-oc apply -f amq-streams/install/cluster/kafka-ephemeral.yaml -n rtp-demo
 
 # --- Install MySQL
-oc new-app \
-    -e MYSQL_USER=dbuser \
-    -e MYSQL_PASSWORD=dbpass \
-    -e MYSQL_DATABASE=rtpdb \
-    --name=mysql-56-rhel7 \
-    registry.access.redhat.com/rhscl/mysql-56-rhel7
-
-until [ "$(oc get pods --selector app=mysql-56-rhel7 -o jsonpath="{.items[0].status.containerStatuses[?(@.name == \"mysql-56-rhel7\")].ready}" 2> /dev/null)" = "true" ]; do sleep 3; printf "Waiting until container is ready...\n"; done
-
-oc port-forward $(oc get pods --selector app=mysql-56-rhel7 -o jsonpath="{.items[0].metadata.name}") 3306 &> /dev/null &
-cpid=$!
-trap "kill $cpid" EXIT
-until mysql --host localhost -P 3306 --protocol tcp -u dbuser -D rtpdb -pdbpass --execute exit &> /dev/null; do sleep 3; printf "Waiting until MySQL comes up...\n"; done
-
-printf "Loading payment.sql\n"
-mysql -w --host localhost -P 3306 --protocol tcp -u dbuser -D rtpdb -pdbpass < ./payments-repository/src/main/resources/DDL/01_payment.sql
-printf "Loading account.sql\n"
-mysql --host localhost -P 3306 --protocol tcp -u dbuser -D rtpdb -pdbpass < ./payments-repository/src/main/resources/DDL/02_account.sql
-printf "Loading alters.sql\n"
-mysql --host localhost -P 3306 --protocol tcp -u dbuser -D rtpdb -pdbpass < ./payments-repository/src/main/resources/DDL/07_alters.sql
-printf "Loading accounts.sql\n"
-mysql --host localhost -P 3306 --protocol tcp -u dbuser -D rtpdb -pdbpass < ./payments-repository/src/main/resources/DML/accounts.sql
-kill $cpid
-trap - EXIT
 
 # --- Build maven projects
 for project in \

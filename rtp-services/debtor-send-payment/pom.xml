@@ -8,9 +8,6 @@
     <artifactId>debtor-send-payment</artifactId>
     <version>1.0.0</version>
 
-    <name>Fabric8 :: Quickstarts :: Spring-Boot :: Camel</name>
-    <description>Spring Boot example running a Camel route</description>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

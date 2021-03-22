@@ -8,8 +8,7 @@
     <artifactId>creditor-aml-check</artifactId>
     <version>1.0.0</version>
 
-    <name>Fabric8 :: Quickstarts :: Spring-Boot :: Camel</name>
-    <description>Spring Boot example running a Camel route</description>
+    <name>creditor-aml-check</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -162,10 +161,10 @@
                     <execution>
                         <goals>
                             <goal>repackage</goal>
-                        </goals>
+                        </goals> 
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> 
 
         </plugins>
     </build>
