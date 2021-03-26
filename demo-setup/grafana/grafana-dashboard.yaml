@@ -1,0 +1,101 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDashboard
+metadata:
+  labels:
+    app: grafana
+  name: rtp-demo-grafana-dashboard
+  namespace: rtp-demo
+spec:
+  json: '{   "annotations": {     "list": [       {         "builtIn": 1,         "datasource":
+    "-- Grafana --",         "enable": true,         "hide": true,         "iconColor":
+    "rgba(0, 211, 255, 1)",         "name": "Annotations & Alerts",         "type":
+    "dashboard"       }     ]   },   "editable": true,   "gnetId": null,   "graphTooltip":
+    1,   "id": 3,   "links": [],   "panels": [     {       "bgColor": null,       "bgURL":
+    "https://fsi-demo-images.s3.amazonaws.com/RTP-Process.png",       "boxes": [         {           "angle":
+    0,           "color": "#000",           "colorHigh": "#f00",           "colorLow":
+    "#0f0",           "colorMedium": "#fa1",           "decimal": 1,           "fontsize":
+    "24",           "hasOrb": false,           "isBlinking": false,           "orbHideText":
+    false,           "orbLocation": "Left",           "orbSize": "10",           "prefixSize":
+    10,           "serie": "test1",           "suffixSize": 10,           "text":
+    "N/A",           "thresholds": "20,60",           "usingThresholds": false,           "xpos":
+    "165",           "ypos": "435"         },         {           "angle": 0,           "color":
+    "#000",           "colorHigh": "#f00",           "colorLow": "#0f0",           "colorMedium":
+    "#fa1",           "decimal": 1,           "fontsize": "24",           "hasOrb":
+    false,           "isBlinking": false,           "orbHideText": false,           "orbLocation":
+    "Left",           "orbSize": "10",           "prefixSize": 10,           "serie":
+    "test2",           "suffixSize": 10,           "text": "N/A",           "thresholds":
+    "20,60",           "usingThresholds": false,           "xpos": "370",           "ypos":
+    "435"         },         {           "angle": 0,           "color": "#000",           "colorHigh":
+    "#f00",           "colorLow": "#0f0",           "colorMedium": "#fa1",           "decimal":
+    1,           "fontsize": "24",           "hasOrb": false,           "isBlinking":
+    false,           "orbHideText": false,           "orbLocation": "Left",           "orbSize":
+    "10",           "prefixSize": 10,           "serie": "test3",           "suffixSize":
+    10,           "text": "N/A",           "thresholds": "20,60",           "usingThresholds":
+    false,           "xpos": "560",           "ypos": "435"         },         {           "angle":
+    0,           "color": "#000",           "colorHigh": "#f00",           "colorLow":
+    "#0f0",           "colorMedium": "#fa1",           "decimal": 1,           "fontsize":
+    "24",           "hasOrb": false,           "isBlinking": false,           "orbHideText":
+    false,           "orbLocation": "Left",           "orbSize": "10",           "prefixSize":
+    10,           "serie": "test4",           "suffixSize": 10,           "text":
+    "N/A",           "thresholds": "20,60",           "usingThresholds": false,           "xpos":
+    "820",           "ypos": "460"         },         {           "angle": 0,           "color":
+    "#000",           "colorHigh": "#f00",           "colorLow": "#0f0",           "colorMedium":
+    "#fa1",           "decimal": 1,           "fontsize": "24",           "hasOrb":
+    false,           "isBlinking": false,           "orbHideText": false,           "orbLocation":
+    "Left",           "orbSize": "10",           "prefixSize": 10,           "serie":
+    "test5",           "suffixSize": 10,           "text": "N/A",           "thresholds":
+    "20,60",           "usingThresholds": false,           "xpos": "1075",           "ypos":
+    "435"         }       ],       "datasource": "rtp-demo-mysql-datasource",       "fieldConfig":
+    {         "defaults": {           "custom": {}         },         "overrides":
+    []       },       "gridPos": {         "h": 8,         "w": 12,         "x": 5,         "y":
+    0       },       "id": 2,       "pluginVersion": "7.1.1",       "targets": [         {           "format":
+    "time_series",           "group": [],           "metricColumn": "none",           "rawQuery":
+    true,           "rawSql": "SELECT\n  CREATION_DATE_TIME AS \"time\",\n  \"test1\"
+    AS metric,\n  SUM(ENTRYCOUNT) AS \"value\"\nFROM VALIDATION_COMPLETE\nWHERE\n  $__timeFilter(CREATION_DATE_TIME)\nORDER
+    BY CREATION_DATE_TIME",           "refId": "A",           "select": [             [               {                 "params":
+    [                   "ENTRYCOUNT"                 ],                 "type": "column"               }             ]           ],           "table":
+    "VALIDATION_COMPLETE",           "timeColumn": "CREATION_DATE_TIME",           "timeColumnType":
+    "timestamp",           "where": [             {               "name": "$__timeFilter",               "params":
+    [],               "type": "macro"             }           ]         },         {           "format":
+    "time_series",           "group": [],           "metricColumn": "none",           "rawQuery":
+    true,           "rawSql": "SELECT\n  CREATION_DATE_TIME AS \"time\",\n  \"test2\"
+    AS metric,\n  SUM(ENTRYCOUNT) AS \"value\"\nFROM AML_CHECK_COMPLETE\nWHERE\n  $__timeFilter(CREATION_DATE_TIME)\nORDER
+    BY CREATION_DATE_TIME",           "refId": "B",           "select": [             [               {                 "params":
+    [                   "ENTRYCOUNT"                 ],                 "type": "column"               }             ]           ],           "table":
+    "AML_CHECK_COMPLETE",           "timeColumn": "CREATION_DATE_TIME",           "timeColumnType":
+    "timestamp",           "where": [             {               "name": "$__timeFilter",               "params":
+    [],               "type": "macro"             }           ]         },         {           "format":
+    "time_series",           "group": [],           "metricColumn": "none",           "rawQuery":
+    true,           "rawSql": "SELECT\n  CREATION_DATE_TIME AS \"time\",\n  \"test3\"
+    AS metric,\n  SUM(ENTRYCOUNT) AS \"value\"\nFROM FRAUD_CHECK_COMPLETE\nWHERE\n  $__timeFilter(CREATION_DATE_TIME)\nORDER
+    BY CREATION_DATE_TIME",           "refId": "C",           "select": [             [               {                 "params":
+    [                   "ENTRYCOUNT"                 ],                 "type": "column"               }             ]           ],           "table":
+    "FRAUD_CHECK_COMPLETE",           "timeColumn": "CREATION_DATE_TIME",           "timeColumnType":
+    "timestamp",           "where": [             {               "name": "$__timeFilter",               "params":
+    [],               "type": "macro"             }           ]         },         {           "format":
+    "time_series",           "group": [],           "metricColumn": "none",           "rawQuery":
+    true,           "rawSql": "SELECT\n  CREATION_DATE_TIME AS \"time\",\n  \"test4\"
+    AS metric,\n  SUM(ENTRYCOUNT) AS \"value\"\nFROM AUDIT_COMPLETE\nWHERE\n  $__timeFilter(CREATION_DATE_TIME)\nORDER
+    BY CREATION_DATE_TIME",           "refId": "D",           "select": [             [               {                 "params":
+    [                   "ENTRYCOUNT"                 ],                 "type": "column"               }             ]           ],           "table":
+    "AUDIT_COMPLETE",           "timeColumn": "CREATION_DATE_TIME",           "timeColumnType":
+    "timestamp",           "where": [             {               "name": "$__timeFilter",               "params":
+    [],               "type": "macro"             }           ]         },         {           "format":
+    "time_series",           "group": [],           "metricColumn": "none",           "rawQuery":
+    true,           "rawSql": "SELECT\n  CREATION_DATE_TIME AS \"time\",\n  \"test5\"
+    AS metric,\n  SUM(ENTRYCOUNT) AS \"value\"\nFROM PAYMENT_NETWORK_SENT\nWHERE\n  $__timeFilter(CREATION_DATE_TIME)\nORDER
+    BY CREATION_DATE_TIME",           "refId": "E",           "select": [             [               {                 "params":
+    [                   "ENTRYCOUNT"                 ],                 "type": "column"               }             ]           ],           "table":
+    "PAYMENT_NETWORK_SENT",           "timeColumn": "CREATION_DATE_TIME",           "timeColumnType":
+    "timestamp",           "where": [             {               "name": "$__timeFilter",               "params":
+    [],               "type": "macro"             }           ]         }       ],       "timeFrom":
+    null,       "timeShift": null,       "title": "Payment Process",       "type":
+    "larona-epict-panel"     }   ],   "refresh": "5s",   "schemaVersion": 26,   "style":
+    "dark",   "tags": [],   "templating": {     "list": []   },   "time": {     "from":
+    "now-6h",     "to": "now"   },   "timepicker": {     "refresh_intervals": [],     "time_options":
+    []   },   "timezone": "browser",   "title": "RTP Demo Grafana Dashboard",   "uid":
+    "23d54a9438981d6508b85e5d6b6a775ee1000820",   "version": 4 }'
+  name: rtp-demo-grafana-dashboard.json
+  plugins:
+  - name: larona-epict-panel
+    version: 1.2.2

@@ -2,7 +2,7 @@ apiVersion: infinispan.org/v1
 kind: Infinispan
 metadata:
   name: rtp-infinispan
-  namespace: rtp-data-grid
+  namespace: rtp-demo
 spec:
   replicas: 2
   service:

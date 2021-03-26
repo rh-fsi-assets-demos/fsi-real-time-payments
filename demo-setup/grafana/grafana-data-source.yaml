@@ -1,0 +1,19 @@
+apiVersion: integreatly.org/v1alpha1
+kind: GrafanaDataSource
+metadata:
+  name: mysql-data-source
+  namespace: rtp-demo
+spec:
+  datasources:
+    - access: proxy
+      editable: true
+      secureJsonData:
+        password: dbpass
+      name: MYSQL
+      user: dbuser
+      url: mysql-56-rhel7
+      isDefault: true
+      version: 1
+      type: mysql
+      database: rtpdb
+  name: mysql-data-source.yaml
