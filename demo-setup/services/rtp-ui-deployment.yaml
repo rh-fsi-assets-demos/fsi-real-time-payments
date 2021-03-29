@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: rtp-ui-deployment
+  annotations:
+    sidecar.istio.io/inject: "true"
 spec:
   selector:
     matchLabels:
@@ -11,6 +13,8 @@ spec:
     metadata:
       labels:
         app: rtp-ui
+      annotations:
+        sidecar.istio.io/inject: "true"
     spec:
       containers:
       - name: rtp-ui

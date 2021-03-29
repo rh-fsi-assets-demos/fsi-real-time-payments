@@ -5,6 +5,8 @@ metadata:
   namespace: rtp-demo
   labels:
     app: debtor-payment-service
+  annotations:
+    sidecar.istio.io/inject: "true"
 spec:
   replicas: 3
   selector:
@@ -14,6 +16,8 @@ spec:
     metadata:
       labels:
         app: debtor-payment-service
+      annotations:
+        sidecar.istio.io/inject: "true"
     spec:
       containers:
       - name: debtor-payment-service
