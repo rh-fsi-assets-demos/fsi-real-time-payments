@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: rtp-demo
+  namespace: rtp-demo
+spec:
+  hosts:
+  - rtp-ui
+  gateways:
+  - rtp-demo-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /v1/rtp-ui
+    route:
+    - destination:
+        host: rtp-ui
+        subset: v1
+        port:
+          number: 8080
+      redirect:
+        uri: /

@@ -1,18 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rtp-ui-deployment
+  name: rtp-ui-v1
+  namespace: rtp-demo
   annotations:
     sidecar.istio.io/inject: "true"
+  labels:
+    app: rtp-ui
+    version: v1
 spec:
   selector:
     matchLabels:
       app: rtp-ui
+      version: v1
   replicas: 1
   template:
     metadata:
       labels:
         app: rtp-ui
+        version: v1
       annotations:
         sidecar.istio.io/inject: "true"
     spec:
@@ -20,4 +26,4 @@ spec:
       - name: rtp-ui
         image: docker.io/lcspangler/rtp-images:1611302008
         ports:
-        - containerPort: 8888
+        - containerPort: 8080

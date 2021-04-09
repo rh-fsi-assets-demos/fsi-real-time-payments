@@ -2,10 +2,14 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rtp-ui
+  labels:
+    app: rtp-ui
+    service: rtp-ui
   namespace: rtp-demo
 spec:
   ports:
-  - port: 8888
+  - name: 8080-tcp
+    port: 8080
     protocol: TCP
     targetPort: 8080
   selector:

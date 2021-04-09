@@ -1,0 +1,11 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: mysql-56-rhel7
+  namespace: rtp-demo
+spec:
+  host: mysql-56-rhel7
+  subsets:
+  - name: v1
+    labels:
+      version: v1

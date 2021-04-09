@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: mysql-56-rhel7
+  namespace: rtp-demo
+spec:
+  hosts:
+  - mysql-56-rhel7
+  gateways:
+  - rtp-demo-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /v1/mysql-56-rhel7
+    route:
+    - destination:
+        host: mysql-56-rhel7
+        subset: v1
+        port:
+          number: 3306
+      redirect:
+        uri: /

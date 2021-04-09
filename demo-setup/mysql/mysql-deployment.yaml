@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mysql-56-rhel7
+    tier: mysql
+    version: v1
+  annotations:
+    sidecar.istio.io/inject: "true"
+  name: mysql-56-rhel7
+  namespace: rtp-demo
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: mysql-56-rhel7
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: mysql-56-rhel7
+        tier: mysql
+        version: v1
+      annotations:
+        sidecar.istio.io/inject: "true"
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_DATABASE
+          value: rtpdb
+        - name: MYSQL_PASSWORD
+          value: dbpass
+        - name: MYSQL_USER
+          value: dbuser
+        image: registry.access.redhat.com/rhscl/mysql-56-rhel7@sha256:2c5483929f95892100c2f8ff45ee405cea0ca2380ddce2cbf5409e9c5240204f
+        imagePullPolicy: Always
+        name: mysql-56-rhel7
+        ports:
+        - containerPort: 3306
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /var/lib/mysql/data
+          name: mysql-56-rhel7-volume-1
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - emptyDir: {}
+        name: mysql-56-rhel7-volume-1
+

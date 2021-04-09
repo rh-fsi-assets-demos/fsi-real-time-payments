@@ -5,17 +5,20 @@ metadata:
   namespace: rtp-demo
   labels:
     app: debtor-payment-service
+    version: v1
   annotations:
     sidecar.istio.io/inject: "true"
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: debtor-payment-service
+      version: v1
   template:
     metadata:
       labels:
         app: debtor-payment-service
+        version: v1
       annotations:
         sidecar.istio.io/inject: "true"
     spec:

@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: mysql-56-rhel7
+    service: mysql-56-rhel7
+  name: mysql-56-rhel7
+  namespace: rtp-demo
+spec:
+  ports:
+  - name: mysql
+    port: 3306
+    protocol: TCP
+    targetPort: 3306
+  selector:
+    app: mysql-56-rhel7

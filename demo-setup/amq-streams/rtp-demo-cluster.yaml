@@ -24,6 +24,19 @@ spec:
         port: 9093
         type: internal
         tls: true
+    template:
+      statefulset:
+        metadata:
+          labels:
+            app: rtp-demo-cluster
+            version: v1
+      pod:
+        metadata:
+          labels:
+            app: rtp-demo-cluster
+            version: v1
+          annotations:
+            sidecar.istio.io/inject: "true"
   entityOperator:
     topicOperator: {}
     userOperator: {}
